@@ -3,16 +3,13 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <!-- Mobile meta tags to go in head-->
-		<meta name="HandheldFriendly" content="True">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-		<meta name="MobileOptimized" content="320"/>
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta http-equiv="cleartype" content="on">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <link rel="stylesheet" href="css/leaflet.css"><link rel="stylesheet" href="css/L.Control.Locate.min.css">
         <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/MarkerCluster.css">
+        <link rel="stylesheet" href="css/MarkerCluster.Default.css">
         <link rel="stylesheet" href="css/leaflet-measure.css">
         <style>
         html, body, #map {
@@ -21,12 +18,7 @@
             padding: 0;
             margin: 0;
         }
-        .leaflet-popup-content {
-			min-width: 200px;
-			min-height: 100px;
-			overflow-y: scroll;
-		}
-		</style>
+        </style>
         <title></title>
     </head>
     <body>
@@ -42,15 +34,15 @@
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
         <script src="js/leaflet-measure.js"></script>
+        <script src="js/leaflet.markercluster.js"></script>
         <script src="data/Reg01012021_WGS84_1.js"></script>
         <script src="data/ProvCM01012021_WGS84_2.js"></script>
         <script src="data/LazioCom01012021_WGS84_3.js"></script>
-        <script src="data/Municipi_Roma_15_wgs84_1_4.js"></script>
-        <script src="data/PAZIENTI_5.js"></script>
+        <script src="data/PAZIENTI_4.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[41.62105114776744,11.384909806361064],[42.60976529886081,13.570881779065262]]);
+        }).fitBounds([[41.6033823830362,11.39091280059206],[42.59237000673032,13.576884773296257]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -193,7 +185,7 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(237,245,252,0.5019607843137255)',
+                fillColor: 'rgba(241,247,253,0.5019607843137255)',
                 interactive: true,
             }
                     break;
@@ -208,7 +200,22 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(228,239,249,0.5019607843137255)',
+                fillColor: 'rgba(235,244,251,0.5019607843137255)',
+                interactive: true,
+            }
+                    break;
+                case '4':
+                    return {
+                pane: 'pane_LazioCom01012021_WGS84_3',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(230,240,249,0.5019607843137255)',
                 interactive: true,
             }
                     break;
@@ -223,7 +230,7 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(218,233,246,0.5019607843137255)',
+                fillColor: 'rgba(224,236,248,0.5019607843137255)',
                 interactive: true,
             }
                     break;
@@ -238,7 +245,7 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(209,226,243,0.5019607843137255)',
+                fillColor: 'rgba(218,232,246,0.5019607843137255)',
                 interactive: true,
             }
                     break;
@@ -253,11 +260,11 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(200,220,240,0.5019607843137255)',
+                fillColor: 'rgba(212,229,244,0.5019607843137255)',
                 interactive: true,
             }
                     break;
-                case '11':
+                case '8':
                     return {
                 pane: 'pane_LazioCom01012021_WGS84_3',
                 opacity: 1,
@@ -268,11 +275,11 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(186,214,235,0.5019607843137255)',
+                fillColor: 'rgba(207,225,242,0.5019607843137255)',
                 interactive: true,
             }
                     break;
-                case '14':
+                case '9':
                     return {
                 pane: 'pane_LazioCom01012021_WGS84_3',
                 opacity: 1,
@@ -283,7 +290,37 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(170,207,229,0.5019607843137255)',
+                fillColor: 'rgba(201,221,240,0.5019607843137255)',
+                interactive: true,
+            }
+                    break;
+                case '12':
+                    return {
+                pane: 'pane_LazioCom01012021_WGS84_3',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(194,217,238,0.5019607843137255)',
+                interactive: true,
+            }
+                    break;
+                case '15':
+                    return {
+                pane: 'pane_LazioCom01012021_WGS84_3',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(185,213,234,0.5019607843137255)',
                 interactive: true,
             }
                     break;
@@ -298,7 +335,7 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(154,200,224,0.5019607843137255)',
+                fillColor: 'rgba(175,209,231,0.5019607843137255)',
                 interactive: true,
             }
                     break;
@@ -313,11 +350,11 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(134,189,220,0.5019607843137255)',
+                fillColor: 'rgba(166,205,228,0.5019607843137255)',
                 interactive: true,
             }
                     break;
-                case '26':
+                case '19':
                     return {
                 pane: 'pane_LazioCom01012021_WGS84_3',
                 opacity: 1,
@@ -328,11 +365,11 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(115,178,216,0.5019607843137255)',
+                fillColor: 'rgba(156,201,225,0.5019607843137255)',
                 interactive: true,
             }
                     break;
-                case '30':
+                case '22':
                     return {
                 pane: 'pane_LazioCom01012021_WGS84_3',
                 opacity: 1,
@@ -343,11 +380,11 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(98,168,210,0.5019607843137255)',
+                fillColor: 'rgba(145,195,222,0.5019607843137255)',
                 interactive: true,
             }
                     break;
-                case '40':
+                case '23':
                     return {
                 pane: 'pane_LazioCom01012021_WGS84_3',
                 opacity: 1,
@@ -358,11 +395,11 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(82,157,204,0.5019607843137255)',
+                fillColor: 'rgba(133,188,220,0.5019607843137255)',
                 interactive: true,
             }
                     break;
-                case '41':
+                case '24':
                     return {
                 pane: 'pane_LazioCom01012021_WGS84_3',
                 opacity: 1,
@@ -373,11 +410,11 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(66,146,198,0.5019607843137255)',
+                fillColor: 'rgba(121,182,217,0.5019607843137255)',
                 interactive: true,
             }
                     break;
-                case '42':
+                case '27':
                     return {
                 pane: 'pane_LazioCom01012021_WGS84_3',
                 opacity: 1,
@@ -388,11 +425,11 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(53,133,191,0.5019607843137255)',
+                fillColor: 'rgba(109,175,214,0.5019607843137255)',
                 interactive: true,
             }
                     break;
-                case '56':
+                case '33':
                     return {
                 pane: 'pane_LazioCom01012021_WGS84_3',
                 opacity: 1,
@@ -403,11 +440,11 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(41,121,185,0.5019607843137255)',
+                fillColor: 'rgba(99,169,211,0.5019607843137255)',
                 interactive: true,
             }
                     break;
-                case '72':
+                case '37':
                     return {
                 pane: 'pane_LazioCom01012021_WGS84_3',
                 opacity: 1,
@@ -418,11 +455,11 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(29,108,177,0.5019607843137255)',
+                fillColor: 'rgba(89,162,207,0.5019607843137255)',
                 interactive: true,
             }
                     break;
-                case '93':
+                case '51':
                     return {
                 pane: 'pane_LazioCom01012021_WGS84_3',
                 opacity: 1,
@@ -433,11 +470,11 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(18,94,166,0.5019607843137255)',
+                fillColor: 'rgba(80,155,203,0.5019607843137255)',
                 interactive: true,
             }
                     break;
-                case '107':
+                case '54':
                     return {
                 pane: 'pane_LazioCom01012021_WGS84_3',
                 opacity: 1,
@@ -448,11 +485,11 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(8,81,156,0.5019607843137255)',
+                fillColor: 'rgba(70,149,200,0.5019607843137255)',
                 interactive: true,
             }
                     break;
-                case '600':
+                case '55':
                     return {
                 pane: 'pane_LazioCom01012021_WGS84_3',
                 opacity: 1,
@@ -463,7 +500,157 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(8,65,132,0.5019607843137255)',
+                fillColor: 'rgba(62,142,196,0.5019607843137255)',
+                interactive: true,
+            }
+                    break;
+                case '77':
+                    return {
+                pane: 'pane_LazioCom01012021_WGS84_3',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(54,134,192,0.5019607843137255)',
+                interactive: true,
+            }
+                    break;
+                case '106':
+                    return {
+                pane: 'pane_LazioCom01012021_WGS84_3',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(46,126,188,0.5019607843137255)',
+                interactive: true,
+            }
+                    break;
+                case '109':
+                    return {
+                pane: 'pane_LazioCom01012021_WGS84_3',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(39,119,184,0.5019607843137255)',
+                interactive: true,
+            }
+                    break;
+                case '115':
+                    return {
+                pane: 'pane_LazioCom01012021_WGS84_3',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(31,111,179,0.5019607843137255)',
+                interactive: true,
+            }
+                    break;
+                case '162':
+                    return {
+                pane: 'pane_LazioCom01012021_WGS84_3',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(25,103,173,0.5019607843137255)',
+                interactive: true,
+            }
+                    break;
+                case '182':
+                    return {
+                pane: 'pane_LazioCom01012021_WGS84_3',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(19,95,167,0.5019607843137255)',
+                interactive: true,
+            }
+                    break;
+                case '207':
+                    return {
+                pane: 'pane_LazioCom01012021_WGS84_3',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(12,87,160,0.5019607843137255)',
+                interactive: true,
+            }
+                    break;
+                case '261':
+                    return {
+                pane: 'pane_LazioCom01012021_WGS84_3',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(8,78,152,0.5019607843137255)',
+                interactive: true,
+            }
+                    break;
+                case '344':
+                    return {
+                pane: 'pane_LazioCom01012021_WGS84_3',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(8,68,137,0.5019607843137255)',
+                interactive: true,
+            }
+                    break;
+                case '1785':
+                    return {
+                pane: 'pane_LazioCom01012021_WGS84_3',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(8,58,122,0.5019607843137255)',
                 interactive: true,
             }
                     break;
@@ -471,7 +658,7 @@
                     return {
                 pane: 'pane_LazioCom01012021_WGS84_3',
                 opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
+                color: 'rgba(35,35,35,0.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
@@ -498,46 +685,7 @@
         });
         bounds_group.addLayer(layer_LazioCom01012021_WGS84_3);
         map.addLayer(layer_LazioCom01012021_WGS84_3);
-        function pop_Municipi_Roma_15_wgs84_1_4(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <th scope="row">municipio</th>\
-                        <td>' + (feature.properties['municipio'] !== null ? autolinker.link(feature.properties['municipio'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            layer.bindPopup(popupContent, {maxHeight: 400});
-        }
-
-        function style_Municipi_Roma_15_wgs84_1_4_0() {
-            return {
-                pane: 'pane_Municipi_Roma_15_wgs84_1_4',
-                opacity: 1,
-                color: 'rgba(227,26,28,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(178,223,138,0.0)',
-                interactive: true,
-            }
-        }
-        map.createPane('pane_Municipi_Roma_15_wgs84_1_4');
-        map.getPane('pane_Municipi_Roma_15_wgs84_1_4').style.zIndex = 404;
-        map.getPane('pane_Municipi_Roma_15_wgs84_1_4').style['mix-blend-mode'] = 'normal';
-        var layer_Municipi_Roma_15_wgs84_1_4 = new L.geoJson(json_Municipi_Roma_15_wgs84_1_4, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_Municipi_Roma_15_wgs84_1_4',
-            layerName: 'layer_Municipi_Roma_15_wgs84_1_4',
-            pane: 'pane_Municipi_Roma_15_wgs84_1_4',
-            onEachFeature: pop_Municipi_Roma_15_wgs84_1_4,
-            style: style_Municipi_Roma_15_wgs84_1_4_0,
-        });
-        bounds_group.addLayer(layer_Municipi_Roma_15_wgs84_1_4);
-        map.addLayer(layer_Municipi_Roma_15_wgs84_1_4);
-        function pop_PAZIENTI_5(feature, layer) {
+        function pop_PAZIENTI_4(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Fattura</th>\
@@ -551,9 +699,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_PAZIENTI_5_0() {
+        function style_PAZIENTI_4_0() {
             return {
-                pane: 'pane_PAZIENTI_5',
+                pane: 'pane_PAZIENTI_4',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -567,26 +715,30 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_PAZIENTI_5');
-        map.getPane('pane_PAZIENTI_5').style.zIndex = 405;
-        map.getPane('pane_PAZIENTI_5').style['mix-blend-mode'] = 'normal';
-        var layer_PAZIENTI_5 = new L.geoJson(json_PAZIENTI_5, {
+        map.createPane('pane_PAZIENTI_4');
+        map.getPane('pane_PAZIENTI_4').style.zIndex = 404;
+        map.getPane('pane_PAZIENTI_4').style['mix-blend-mode'] = 'normal';
+        var layer_PAZIENTI_4 = new L.geoJson(json_PAZIENTI_4, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_PAZIENTI_5',
-            layerName: 'layer_PAZIENTI_5',
-            pane: 'pane_PAZIENTI_5',
-            onEachFeature: pop_PAZIENTI_5,
+            dataVar: 'json_PAZIENTI_4',
+            layerName: 'layer_PAZIENTI_4',
+            pane: 'pane_PAZIENTI_4',
+            onEachFeature: pop_PAZIENTI_4,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_PAZIENTI_5_0(feature));
+                return L.circleMarker(latlng, style_PAZIENTI_4_0(feature));
             },
         });
-        bounds_group.addLayer(layer_PAZIENTI_5);
-        map.addLayer(layer_PAZIENTI_5);
+        var cluster_PAZIENTI_4 = new L.MarkerClusterGroup({showCoverageOnHover: false,
+            spiderfyDistanceMultiplier: 2});
+        cluster_PAZIENTI_4.addLayer(layer_PAZIENTI_4);
+
+        bounds_group.addLayer(layer_PAZIENTI_4);
+        cluster_PAZIENTI_4.addTo(map);
         setBounds();
         var i = 0;
         layer_ProvCM01012021_WGS84_2.eachLayer(function(layer) {
@@ -614,28 +766,15 @@
               addLabel(layer, i);
               i++;
         });
-        var i = 0;
-        layer_Municipi_Roma_15_wgs84_1_4.eachLayer(function(layer) {
-            var context = {
-                feature: layer.feature,
-                variables: {}
-            };
-            layer.bindTooltip((layer.feature.properties['municipio'] !== null?String('<div style="color: #000000; font-size: 8pt; font-weight: bold; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['municipio']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Municipi_Roma_15_wgs84_1_4'});
-            labels.push(layer);
-            totalMarkers += 1;
-              layer.added = true;
-              addLabel(layer, i);
-              i++;
-        });
-        resetLabels([layer_ProvCM01012021_WGS84_2,layer_LazioCom01012021_WGS84_3,layer_Municipi_Roma_15_wgs84_1_4]);
+        resetLabels([layer_ProvCM01012021_WGS84_2,layer_LazioCom01012021_WGS84_3]);
         map.on("zoomend", function(){
-            resetLabels([layer_ProvCM01012021_WGS84_2,layer_LazioCom01012021_WGS84_3,layer_Municipi_Roma_15_wgs84_1_4]);
+            resetLabels([layer_ProvCM01012021_WGS84_2,layer_LazioCom01012021_WGS84_3]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_ProvCM01012021_WGS84_2,layer_LazioCom01012021_WGS84_3,layer_Municipi_Roma_15_wgs84_1_4]);
+            resetLabels([layer_ProvCM01012021_WGS84_2,layer_LazioCom01012021_WGS84_3]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_ProvCM01012021_WGS84_2,layer_LazioCom01012021_WGS84_3,layer_Municipi_Roma_15_wgs84_1_4]);
+            resetLabels([layer_ProvCM01012021_WGS84_2,layer_LazioCom01012021_WGS84_3]);
         });
         </script>
     </body>
