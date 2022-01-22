@@ -151,14 +151,14 @@
                         <td colspan="2"><strong>COMUNE</strong><br />' + (feature.properties['COMUNE'] !== null ? autolinker.link(feature.properties['COMUNE'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong>Pazienti_Somma</strong><br />' + (feature.properties['Pazienti_Somma'] !== null ? autolinker.link(feature.properties['Pazienti_Somma'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><strong>Fatture_Somma</strong><br />' + (feature.properties['Fatture_Somma'] !== null ? autolinker.link(feature.properties['Fatture_Somma'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
         function style_LazioCom01012021_WGS84_3_0(feature) {
-            switch(String(feature.properties['Pazienti_Somma'])) {
+            switch(String(feature.properties['Fatture_Somma'])) {
                 case '1':
                     return {
                 pane: 'pane_LazioCom01012021_WGS84_3',
@@ -658,7 +658,7 @@
                     return {
                 pane: 'pane_LazioCom01012021_WGS84_3',
                 opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
+                color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
