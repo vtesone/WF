@@ -38,11 +38,11 @@
         <script src="data/Reg01012021_WGS84_1.js"></script>
         <script src="data/ProvCM01012021_WGS84_2.js"></script>
         <script src="data/LazioCom01012021_WGS84_3.js"></script>
-        <script src="data/PAZIENTI_4.js"></script>
+        <script src="data/FATTURE_4.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[41.523597514314204,11.367390864013466],[42.51381888313545,13.553362836717662]]);
+        }).fitBounds([[41.616279501212915,11.276047343633248],[42.60506751568024,13.462019316337445]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -151,14 +151,15 @@
                         <td colspan="2"><strong>COMUNE</strong><br />' + (feature.properties['COMUNE'] !== null ? autolinker.link(feature.properties['COMUNE'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong>Fatture_Somma</strong><br />' + (feature.properties['Fatture_Somma'] !== null ? autolinker.link(feature.properties['Fatture_Somma'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Comuni_Somma</th>\
+                        <td>' + (feature.properties['Comuni_Somma'] !== null ? autolinker.link(feature.properties['Comuni_Somma'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
         function style_LazioCom01012021_WGS84_3_0(feature) {
-            switch(String(feature.properties['Fatture_Somma'])) {
+            switch(String(feature.properties['Comuni_Somma'])) {
                 case '1':
                     return {
                 pane: 'pane_LazioCom01012021_WGS84_3',
@@ -264,7 +265,7 @@
                 interactive: true,
             }
                     break;
-                case '8':
+                case '9':
                     return {
                 pane: 'pane_LazioCom01012021_WGS84_3',
                 opacity: 1,
@@ -279,7 +280,7 @@
                 interactive: true,
             }
                     break;
-                case '9':
+                case '11':
                     return {
                 pane: 'pane_LazioCom01012021_WGS84_3',
                 opacity: 1,
@@ -309,7 +310,7 @@
                 interactive: true,
             }
                     break;
-                case '15':
+                case '13':
                     return {
                 pane: 'pane_LazioCom01012021_WGS84_3',
                 opacity: 1,
@@ -324,7 +325,7 @@
                 interactive: true,
             }
                     break;
-                case '16':
+                case '15':
                     return {
                 pane: 'pane_LazioCom01012021_WGS84_3',
                 opacity: 1,
@@ -369,7 +370,7 @@
                 interactive: true,
             }
                     break;
-                case '22':
+                case '20':
                     return {
                 pane: 'pane_LazioCom01012021_WGS84_3',
                 opacity: 1,
@@ -384,7 +385,7 @@
                 interactive: true,
             }
                     break;
-                case '23':
+                case '24':
                     return {
                 pane: 'pane_LazioCom01012021_WGS84_3',
                 opacity: 1,
@@ -399,7 +400,7 @@
                 interactive: true,
             }
                     break;
-                case '24':
+                case '25':
                     return {
                 pane: 'pane_LazioCom01012021_WGS84_3',
                 opacity: 1,
@@ -414,7 +415,7 @@
                 interactive: true,
             }
                     break;
-                case '27':
+                case '28':
                     return {
                 pane: 'pane_LazioCom01012021_WGS84_3',
                 opacity: 1,
@@ -429,7 +430,7 @@
                 interactive: true,
             }
                     break;
-                case '33':
+                case '40':
                     return {
                 pane: 'pane_LazioCom01012021_WGS84_3',
                 opacity: 1,
@@ -444,7 +445,7 @@
                 interactive: true,
             }
                     break;
-                case '37':
+                case '45':
                     return {
                 pane: 'pane_LazioCom01012021_WGS84_3',
                 opacity: 1,
@@ -459,7 +460,7 @@
                 interactive: true,
             }
                     break;
-                case '51':
+                case '53':
                     return {
                 pane: 'pane_LazioCom01012021_WGS84_3',
                 opacity: 1,
@@ -474,7 +475,7 @@
                 interactive: true,
             }
                     break;
-                case '54':
+                case '59':
                     return {
                 pane: 'pane_LazioCom01012021_WGS84_3',
                 opacity: 1,
@@ -489,7 +490,7 @@
                 interactive: true,
             }
                     break;
-                case '55':
+                case '60':
                     return {
                 pane: 'pane_LazioCom01012021_WGS84_3',
                 opacity: 1,
@@ -504,7 +505,7 @@
                 interactive: true,
             }
                     break;
-                case '77':
+                case '98':
                     return {
                 pane: 'pane_LazioCom01012021_WGS84_3',
                 opacity: 1,
@@ -519,7 +520,7 @@
                 interactive: true,
             }
                     break;
-                case '106':
+                case '116':
                     return {
                 pane: 'pane_LazioCom01012021_WGS84_3',
                 opacity: 1,
@@ -534,7 +535,7 @@
                 interactive: true,
             }
                     break;
-                case '109':
+                case '120':
                     return {
                 pane: 'pane_LazioCom01012021_WGS84_3',
                 opacity: 1,
@@ -549,7 +550,7 @@
                 interactive: true,
             }
                     break;
-                case '115':
+                case '125':
                     return {
                 pane: 'pane_LazioCom01012021_WGS84_3',
                 opacity: 1,
@@ -564,7 +565,7 @@
                 interactive: true,
             }
                     break;
-                case '162':
+                case '191':
                     return {
                 pane: 'pane_LazioCom01012021_WGS84_3',
                 opacity: 1,
@@ -579,7 +580,7 @@
                 interactive: true,
             }
                     break;
-                case '182':
+                case '196':
                     return {
                 pane: 'pane_LazioCom01012021_WGS84_3',
                 opacity: 1,
@@ -594,7 +595,7 @@
                 interactive: true,
             }
                     break;
-                case '207':
+                case '232':
                     return {
                 pane: 'pane_LazioCom01012021_WGS84_3',
                 opacity: 1,
@@ -609,7 +610,7 @@
                 interactive: true,
             }
                     break;
-                case '261':
+                case '291':
                     return {
                 pane: 'pane_LazioCom01012021_WGS84_3',
                 opacity: 1,
@@ -624,7 +625,7 @@
                 interactive: true,
             }
                     break;
-                case '344':
+                case '363':
                     return {
                 pane: 'pane_LazioCom01012021_WGS84_3',
                 opacity: 1,
@@ -639,7 +640,7 @@
                 interactive: true,
             }
                     break;
-                case '1785':
+                case '1958':
                     return {
                 pane: 'pane_LazioCom01012021_WGS84_3',
                 opacity: 1,
@@ -685,23 +686,23 @@
         });
         bounds_group.addLayer(layer_LazioCom01012021_WGS84_3);
         map.addLayer(layer_LazioCom01012021_WGS84_3);
-        function pop_PAZIENTI_4(feature, layer) {
+        function pop_FATTURE_4(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <th scope="row">Fattura</th>\
-                        <td>' + (feature.properties['Fattura'] !== null ? autolinker.link(feature.properties['Fattura'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><strong>Anno FT</strong><br />' + (feature.properties['Anno FT'] !== null ? autolinker.link(feature.properties['Anno FT'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Cognome e Nome</th>\
-                        <td>' + (feature.properties['Cognome e Nome'] !== null ? autolinker.link(feature.properties['Cognome e Nome'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><strong>Medico</strong><br />' + (feature.properties['Medico'] !== null ? autolinker.link(feature.properties['Medico'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_PAZIENTI_4_0() {
-            return {
-                pane: 'pane_PAZIENTI_4',
+        function style_FATTURE_4_0(feature) {
+            switch(String(feature.properties['Medico'])) {
+                case '[N/A]':
+                    return {
+                pane: 'pane_FATTURE_4',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -711,34 +712,228 @@
                 weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(0,193,230,1.0)',
+                fillColor: 'rgba(75,217,80,1.0)',
                 interactive: true,
             }
+                    break;
+                case 'Cribari Alessandro':
+                    return {
+                pane: 'pane_FATTURE_4',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(0,0,0,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Extra Jolly':
+                    return {
+                pane: 'pane_FATTURE_4',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(68,224,146,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Falcetti Roberta':
+                    return {
+                pane: 'pane_FATTURE_4',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(227,26,28,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Feraudo Emanuela':
+                    return {
+                pane: 'pane_FATTURE_4',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(251,154,153,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'FKT':
+                    return {
+                pane: 'pane_FATTURE_4',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(203,100,75,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Garro Luca':
+                    return {
+                pane: 'pane_FATTURE_4',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(63,240,231,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Graziani Emanuele':
+                    return {
+                pane: 'pane_FATTURE_4',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(207,218,125,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Leonardi Rita':
+                    return {
+                pane: 'pane_FATTURE_4',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(56,150,218,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Menchinelli Paolo':
+                    return {
+                pane: 'pane_FATTURE_4',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(216,49,172,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Tesone Valerio':
+                    return {
+                pane: 'pane_FATTURE_4',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(119,76,205,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Vellucci Olga':
+                    return {
+                pane: 'pane_FATTURE_4',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(209,56,247,1.0)',
+                interactive: true,
+            }
+                    break;
+                default:
+                    return {
+                pane: 'pane_FATTURE_4',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(21,48,222,1.0)',
+                interactive: true,
+            }
+                    break;
+            }
         }
-        map.createPane('pane_PAZIENTI_4');
-        map.getPane('pane_PAZIENTI_4').style.zIndex = 404;
-        map.getPane('pane_PAZIENTI_4').style['mix-blend-mode'] = 'normal';
-        var layer_PAZIENTI_4 = new L.geoJson(json_PAZIENTI_4, {
+        map.createPane('pane_FATTURE_4');
+        map.getPane('pane_FATTURE_4').style.zIndex = 404;
+        map.getPane('pane_FATTURE_4').style['mix-blend-mode'] = 'normal';
+        var layer_FATTURE_4 = new L.geoJson(json_FATTURE_4, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_PAZIENTI_4',
-            layerName: 'layer_PAZIENTI_4',
-            pane: 'pane_PAZIENTI_4',
-            onEachFeature: pop_PAZIENTI_4,
+            dataVar: 'json_FATTURE_4',
+            layerName: 'layer_FATTURE_4',
+            pane: 'pane_FATTURE_4',
+            onEachFeature: pop_FATTURE_4,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_PAZIENTI_4_0(feature));
+                return L.circleMarker(latlng, style_FATTURE_4_0(feature));
             },
         });
-        var cluster_PAZIENTI_4 = new L.MarkerClusterGroup({showCoverageOnHover: false,
+        var cluster_FATTURE_4 = new L.MarkerClusterGroup({showCoverageOnHover: false,
             spiderfyDistanceMultiplier: 2});
-        cluster_PAZIENTI_4.addLayer(layer_PAZIENTI_4);
+        cluster_FATTURE_4.addLayer(layer_FATTURE_4);
 
-        bounds_group.addLayer(layer_PAZIENTI_4);
-        cluster_PAZIENTI_4.addTo(map);
+        bounds_group.addLayer(layer_FATTURE_4);
+        cluster_FATTURE_4.addTo(map);
         setBounds();
         var i = 0;
         layer_ProvCM01012021_WGS84_2.eachLayer(function(layer) {
